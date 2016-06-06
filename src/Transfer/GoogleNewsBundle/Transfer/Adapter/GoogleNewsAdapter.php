@@ -7,7 +7,7 @@
  * in the root directory.
  */
 
-namespace GoogleNewsBundle\Transfer\Adapter;
+namespace Transfer\GoogleNewsBundle\Transfer\Adapter;
 
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
@@ -18,7 +18,6 @@ use Transfer\Adapter\Transaction\Response;
 
 class GoogleNewsAdapter implements SourceAdapterInterface, LoggerAwareInterface
 {
-
     /**
      * @var LoggerInterface Logger
      */
@@ -70,11 +69,12 @@ class GoogleNewsAdapter implements SourceAdapterInterface, LoggerAwareInterface
             CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_URL => $this->options['url'],
         ));
+
         return curl_exec($curl);
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function receive(Request $request)
     {
@@ -86,4 +86,3 @@ class GoogleNewsAdapter implements SourceAdapterInterface, LoggerAwareInterface
         return $response;
     }
 }
-

@@ -1,10 +1,10 @@
 <?php
 
-namespace GoogleNewsBundle\Transfer\Manifest;
+namespace Transfer\GoogleNewsBundle\Transfer\Manifest;
 
 use eZ\Publish\API\Repository\Repository;
-use GoogleNewsBundle\Transfer\Adapter\GoogleNewsAdapter;
-use GoogleNewsBundle\Transfer\Worker\XmlToArrayTransformer;
+use Transfer\GoogleNewsBundle\Transfer\Adapter\GoogleNewsAdapter;
+use Transfer\GoogleNewsBundle\Transfer\Worker\XmlToArrayTransformer;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Transfer\Adapter\LocalDirectoryAdapter;
 use Transfer\Commons\Yaml\Worker\Transformer\YamlToArrayTransformer;
@@ -19,11 +19,10 @@ use Transfer\Processor\SequentialProcessor;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Transfer\Worker\SplitterWorker;
-use GoogleNewsBundle\Transfer\Worker\GoogleNewsToContentTransformer;
+use Transfer\GoogleNewsBundle\Transfer\Worker\GoogleNewsToContentTransformer;
 
 class GoogleNewsToEzPlatformContentManifest implements ManifestInterface
 {
-
     /**
      * @var Repository
      */
@@ -115,10 +114,11 @@ class GoogleNewsToEzPlatformContentManifest implements ManifestInterface
                         ->addWorker(new SplitterWorker())
 
                         ->addWorker(function ($data) {
-                            /** @var $data ValueObject */
+                            /* @var $data ValueObject */
                             $data->setProperty('main_location_id', array(
-                                'destination_location_id' => $this->options['location_id']
+                                'destination_location_id' => $this->options['location_id'],
                             ));
+
                             return $data;
                         })
 

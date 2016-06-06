@@ -1,6 +1,6 @@
 services:
     googlenewsbundle.transfer.manifest.googlenews_to_content:
-        class: GoogleNewsBundle\Transfer\Manifest\GoogleNewsToEzPlatformContentManifest
+        class: Transfer\GoogleNewsBundle\Transfer\Manifest\GoogleNewsToEzPlatformContentManifest
         arguments:
             - @ezpublish.api.repository
             -

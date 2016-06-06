@@ -1,8 +1,7 @@
 <?php
 
-namespace GoogleNewsBundle\DependencyInjection;
+namespace Transfer\GoogleNewsBundle\DependencyInjection;
 
-use Symfony\Bundle\FrameworkBundle\DependencyInjection\Configuration;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -11,7 +10,7 @@ use Symfony\Component\DependencyInjection\Loader;
 class GoogleNewsExtension extends Extension
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function load(array $configs, ContainerBuilder $container)
     {

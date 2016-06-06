@@ -1,6 +1,6 @@
 <?php
 
-namespace GoogleNewsBundle;
+namespace Transfer\GoogleNewsBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

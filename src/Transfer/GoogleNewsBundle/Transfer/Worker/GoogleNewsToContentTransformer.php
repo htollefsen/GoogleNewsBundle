@@ -7,7 +7,7 @@
  * in the root directory.
  */
 
-namespace GoogleNewsBundle\Transfer\Worker;
+namespace Transfer\GoogleNewsBundle\Transfer\Worker;
 
 use Transfer\EzPlatform\Repository\Values\ContentObject;
 use Transfer\Worker\WorkerInterface;
@@ -21,20 +21,19 @@ class GoogleNewsToContentTransformer implements WorkerInterface
     {
         $feeds = array();
 
-        foreach($arrays['channel']['item'] as $feed) {
-
+        foreach ($arrays['channel']['item'] as $feed) {
             $feeds[] = new ContentObject(
                 array(
-                    'title'        => $feed['title'],
-                    'link'         => $feed['link'],
-                    'category'     => $feed['category'],
+                    'title' => $feed['title'],
+                    'link' => $feed['link'],
+                    'category' => $feed['category'],
                     'publish_date' => $feed['pubDate'],
                 ),
                 array(
                     // 'main_location_id' => int, // We will append this in our manifest.
                     'language' => 'eng-GB',
                     'content_type_identifier' => 'google_news',
-                    'remote_id' => 'google_news_' . strtolower(preg_replace("/[^A-Za-z0-9]/", '', $feed['title'])),
+                    'remote_id' => 'google_news_'.strtolower(preg_replace('/[^A-Za-z0-9]/', '', $feed['title'])),
                 )
             );
         }

@@ -7,7 +7,7 @@
  * in the root directory.
  */
 
-namespace GoogleNewsBundle\Transfer\Worker;
+namespace Transfer\GoogleNewsBundle\Transfer\Worker;
 
 use Transfer\Worker\WorkerInterface;
 

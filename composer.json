@@ -1,9 +1,10 @@
 {
-  "name": "transfer/examples",
+  "name": "transfer/GoogleNewsBundle",
   "type": "library",
   "description": "Example bundle for transfer/ezplatform",
   "keywords": ["transfer", "extension", "manifest", "worker"],
   "license": "MIT",
+  "minimun-stability": "dev",
   "authors": [
     {
       "name": "Harald Tollefsen",
@@ -15,17 +16,14 @@
     "symfony/yaml": "~2.7",
     "monolog/monolog": "~1.17",
     "doctrine/orm": "^2.5",
-    "transfer/ezplatform": "v1.0-beta.1"
+    "transfer/ezplatform": "1.0.x-dev"
   },
   "require-dev": {
-    "mockery/mockery": "0.9.*",
-    "polishsymfonycommunity/symfony-mocker-container": "^1.0",
-    "matthiasnoback/symfony-dependency-injection-test": "^0.7.4",
     "phpunit/phpunit": "^4.7"
   },
   "autoload": {
     "psr-4": {
-      "Transfer\\Examples\\": "src/Transfer/GoogleNewsBundle/"
+      "Transfer\\GoogleNewsBundle\\": "src/Transfer/GoogleNewsBundle/"
     }
   }
 }
