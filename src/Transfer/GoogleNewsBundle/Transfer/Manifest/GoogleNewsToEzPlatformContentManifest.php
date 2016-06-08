@@ -100,6 +100,12 @@ class GoogleNewsToEzPlatformContentManifest implements ManifestInterface
                         ->addWorker(new ArrayToEzPlatformContentTypeObjectTransformer())
                         ->addWorker(new SplitterWorker())
 
+            ->addWorker(function (ValueObject $object) {
+                print_r($object->data['fields']['link']->data['default_value']);
+                $object->data['fields']['link']->data['default_value'] = null;
+                return $object;
+            })
+
                     ->addTarget(new EzPlatformAdapter(array('repository' => $this->repository)))
 
                 ->end()
@@ -118,6 +124,7 @@ class GoogleNewsToEzPlatformContentManifest implements ManifestInterface
                             $data->setProperty('main_location_id', array(
                                 'destination_location_id' => $this->options['location_id'],
                             ));
+                            $data->setProperty('main_language_code', 'eng-GB');
 
                             return $data;
                         })
